@@ -1,2 +1,2 @@
-# lesillumines
-Online community of lampshade designers
+# Panier Piano
+Connect music players and instrument owners
