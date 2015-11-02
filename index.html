@@ -106,38 +106,6 @@
       color: white !important;
     }
 
-
-    /* perso */
-
-    .ui.card .ui.label.tag {
-      float: right;
-    }
-
-    .ui.segment.padded {
-      border-radius: 0;
-      padding: 2em 0 3em 0;
-      margin: 3em 0;
-    }
-    .ui.segment.padded .inline.fields {
-      margin: auto;
-      width: 70%;
-      justify-content: center;
-    }
-
-    .ui.footer.vertical.segment {
-      margin-top: 5em;
-    }
-
-    .ui.header .right.floated {
-      float: right;
-      font-size: 1rem;
-    }
-
-    .ui.modal .ui.header small {
-      margin-left: 1em;
-    }
-
-
   </style>
 
   <script src="assets/library/jquery.min.js"></script>
@@ -147,237 +115,22 @@
   $(document)
     .ready(function() {
 
-      // fix menu when passed
-      $('.masthead')
-        .visibility({
-          once: false,
-          onBottomPassed: function() {
-            $('.fixed.menu').transition('fade in');
-          },
-          onBottomPassedReverse: function() {
-            $('.fixed.menu').transition('fade out');
-          }
-        })
-      ;
-
-      // create sidebar and attach to menu open
-      $('.ui.sidebar')
-        .sidebar('attach events', '.toc.item')
-      ;
-
-
-      var updateCounter = function() {
-        var diff = Math.round((Date.UTC(2015, 9, 15, 0, 0, 0) - Date.now()) / 1000);
-        var sec = diff % 60;
-        diff = (diff - sec) / 60;
-        var min = diff % 60;
-        diff = (diff - min) / 60;
-        var hours = diff % 24;
-        diff = (diff - hours) / 24;
-        var days = diff;
-        var txt = days + ' jours, ' + hours + ' heures, ' + min + ' minutes, ' + sec + ' secondes';
-        $('#time-remaining').text(txt);
-      };
-
-      updateCounter();
-      setInterval(updateCounter, 1000);
-
-
-      $('.card .bottom.primary.button').click(function(e) {
-        $('.ui.modal').modal('show');
-      });
-
     })
   ;
   </script>
 </head>
 <body>
 
-<div class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Article ajouté au panier
-  </div>
-  <div class="image content">
-    <div class="ui medium image">
-      <img src="assets/images/fatboy_geek1.png">
-    </div>
-    <div class="description">
-      <div class="ui header">Star Wars <small>by obiwan999</small></div>
-      <p>The light is strong with this one.</p>
-      <span class="ui label tag">15€</span>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="ui black deny button">
-      Retour
-    </div>
-    <div class="ui positive right labeled icon button">
-      Passer la commande (15€)
-      <i class="cart icon"></i>
-    </div>
-  </div>
-</div>
-
-
-<!-- Following Menu -->
-<div class="ui large top fixed hidden menu">
-  <div class="ui container">
-    <a class="main item" href="index.html">Les Illuminés</a>
-    <a class="active item" href="index.html">Achetez</a>
-    <a class="item" href="vote.html">Votez</a>
-    <a class="item" href="post.html">Publiez</a>
-    <a class="item">Discutez</a>
-    <a class="item">Aide</a>
-    <div class="right menu">
-      <div class="item">
-        <a class="ui button">Connexion</a>
-      </div>
-      <div class="item">
-        <a class="ui primary button">S'inscrire</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu">
-  <a class="main item" href="index.html">Les Illuminés</a>
-  <a class="active item" href="index.html">Achetez</a>
-  <a class="item" href="vote.html">Votez</a>
-  <a class="item" href="post.html">Publiez</a>
-  <a class="item">Discutez</a>
-  <a class="item">Aide</a>
-  <a class="item">Connexion</a>
-  <a class="item">S'inscrire</a>
-</div>
-
-
 <!-- Page Contents -->
 <div class="pusher">
   <div class="ui inverted vertical masthead center aligned segment">
-
-    <div class="ui container">
-      <div class="ui large secondary inverted pointing menu">
-        <a class="toc item">
-          <i class="sidebar icon"></i>
-        </a>
-        <a class="main item" href="index.html">Les Illuminés</a>
-        <a class="active item" href="index.html">Achetez</a>
-        <a class="item" href="vote.html">Votez</a>
-        <a class="item" href="post.html">Publiez</a>
-        <a class="item">Discutez</a>
-        <a class="item">Aide</a>
-        <div class="right item">
-          <a class="ui inverted button">Connexion</a>
-          <a class="ui inverted button">S'inscrire</a>
-        </div>
-      </div>
-    </div>
-
     <div class="ui text container">
       <h1 class="ui inverted header">
-        Les Illuminés
+        Panier Piano
       </h1>
-      <h2>Le meilleur des abat-jours en édition limitée</h2>
-    </div>
-
-  </div>
-
-  <h1 class="ui center aligned header">
-    <div class="content">
-      Designs du moment
-      <div class="sub header">En vente pendant encore <date id="time-remaining"></date></div>
-    </div>
-  </h1>
-
-  <div class="ui basic vertical segment cards">
-    <div class="ui centered card">
-      <div class="image">
-        <a class="ui violet ribbon label">Geek</a>
-        <img src="assets/images/fatboy_geek1.png">
-      </div>
-      <div class="content">
-        <a class="header">
-          Star Wars
-          <span class="ui label tag">15€</span>
-        </a>
-        <div class="meta">
-          <span class="author">by obiwan999</span>
-        </div>
-        <div class="description">
-          The light is strong with this one.
-        </div>
-      </div>
-      <div class="ui bottom attached primary button">
-        <i class="cart icon"></i>
-        Acheter
-      </div>
-    </div>
-
-    <div class="ui centered card">
-      <div class="image">
-        <a class="ui green ribbon label">Design</a>
-        <img src="assets/images/fatboy_design1.png">
-      </div>
-      <div class="content">
-        <a class="header">
-          Automne
-          <span class="ui label tag">15€</span>
-        </a>
-        <div class="meta">
-          <span class="author">by abstractist</span>
-        </div>
-        <div class="description">
-          Les sanglots longs des violons de l'automne, blessent mon coeur d'une langueur monotone.
-        </div>
-      </div>
-      <div class="ui bottom attached primary button">
-        <i class="cart icon"></i>
-        Acheter
-      </div>
-    </div>
-
-    <div class="ui centered card">
-      <div class="image">
-        <a class="ui pink ribbon label">Kidz</a>
-        <img src="assets/images/fatboy_kidz1.png">
-      </div>
-      <div class="content">
-        <a class="header">
-          Hello Kitty
-          <span class="ui label tag">15€</span>
-        </a>
-        <div class="meta">
-          <span class="author">by kittylol123</span>
-        </div>
-        <div class="description">
-          Wow. Such Pink. Very Kitty. Much Girly.
-        </div>
-      </div>
-      <div class="ui bottom attached primary button">
-        <i class="cart icon"></i>
-        Acheter
-      </div>
+      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h2>
     </div>
   </div>
-
-
-
-  <div class="ui inverted padded segment center aligned">
-    <h2>Ne ratez aucun design en vous inscrivant à notre newsletter</h2>
-    <div class="ui form center aligned">
-      <div class="inline fields">
-        <div class="ten wide field">
-          <input type="text" placeholder="Email">
-        </div>
-        <div class="field">
-          <button class="ui button" type="submit">S'inscrire</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
 
   <div class="ui basic segment">
