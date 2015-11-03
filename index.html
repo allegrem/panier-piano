@@ -54,70 +54,14 @@
       font-weight: normal;
     }
     .masthead h2 {
-      font-family: Oswald;
+      font-family: 'Oswald';
       font-size: 1.7em;
       font-weight: normal;
       margin-bottom: 2em;
     }
 
-    .ui.vertical.stripe {
-      padding: 8em 0em;
-    }
-    .ui.vertical.stripe h3 {
-      font-size: 2em;
-    }
-    .ui.vertical.stripe .button + h3,
-    .ui.vertical.stripe p + h3 {
-      margin-top: 3em;
-    }
-    .ui.vertical.stripe .floated.image {
-      clear: both;
-    }
-    .ui.vertical.stripe p {
-      font-size: 1.33em;
-    }
-    .ui.vertical.stripe .horizontal.divider {
-      margin: 3em 0em;
-    }
-
-    .quote.stripe.segment {
-      padding: 0em;
-    }
-    .quote.stripe.segment .grid .column {
-      padding-top: 5em;
-      padding-bottom: 5em;
-    }
-
     .footer.segment {
       padding: 5em 0em;
-    }
-
-    .secondary.pointing.menu .toc.item {
-      display: none;
-    }
-
-    @media only screen and (max-width: 700px) {
-      .ui.fixed.menu {
-        display: none !important;
-      }
-      .secondary.pointing.menu .item,
-      .secondary.pointing.menu .menu {
-        display: none;
-      }
-      .secondary.pointing.menu .toc.item {
-        display: block;
-      }
-      .masthead.segment {
-        min-height: 350px;
-      }
-      .masthead h1.ui.header {
-        font-size: 2em;
-        margin-top: 1.5em;
-      }
-      .masthead h2 {
-        margin-top: 0.5em;
-        font-size: 1.5em;
-      }
     }
 
     .ui.button.primary {
@@ -136,6 +80,46 @@
       color: #fff;
     }
 
+    .ui.segment.padded {
+      border-radius: 0;
+      padding: 2em 0 3em 0;
+      margin: 3em 0;
+      background-color: #535396;
+    }
+    .ui.segment.padded h2 {
+      font-family: 'Oswald';
+      font-weight: normal;
+    }
+    .ui.segment.padded .inline.fields {
+      margin: auto;
+      width: 70%;
+      justify-content: center;
+    }
+    .ui.footer.vertical.segment {
+      margin-top: 5em;
+    }
+
+    .ui.horizontal.divider.header {
+      font-family: 'Oswald';
+      overflow: visible;
+    }
+
+    .stores-icons {
+      margin-top: 1em;
+      cursor: pointer;
+    }
+    .stores-icons .icon:hover {
+      color: #7c7ce0;
+      transition: color ease 0.3s;
+    }
+
+    a {
+      color: #7c7ce0;
+    }
+    a:hover, a:active, a:focus {
+      color: #535396;
+    }
+
   </style>
 
   <script src="assets/library/jquery.min.js"></script>
@@ -144,12 +128,52 @@
   <script>
   $(document)
     .ready(function() {
+      $('.open-modal').click(function(e) {
+        $('.ui.modal').modal('show');
+      });
 
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
     })
   ;
   </script>
 </head>
 <body>
+
+<div class="ui basic modal">
+  <i class="close icon"></i>
+  <div class="header">
+    L'application arrive...
+  </div>
+  <div class="image content">
+    <div class="image">
+      <i class="rocket icon"></i>
+    </div>
+    <div class="description">
+      <p>Notre équipe est en train de développer une première version de l'appli pour iOS, Android et Windows Phone. Si vous souhaitez participer à la beta et essayer l'application en exclusivité, renseignez votre adresse mail ci-dessous pour que nous puissions vous contacter.</p>
+      <form class="ui form center aligned">
+        <div class="inline fields">
+          <div class="ten wide field">
+            <input type="text" placeholder="Email">
+          </div>
+          <div class="field">
+            <button class="ui button" type="submit">Tenez moi au courant</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <!-- Page Contents -->
 <div class="pusher">
@@ -158,9 +182,14 @@
       <h1 class="ui inverted header">
         Panier Piano
       </h1>
-      <h2>Première plateforme de mise en relation entre les pianistes et les pianos</h2>
-      <button class="ui primary button huge">Je prête un piano</button>
-      <button class="ui primary button huge">Je cherche un piano</button>
+      <h2>Première plateforme de mise en relation entre les musiciens et les instruments</h2>
+      <a href="#instrument" class="ui button large">Je prête un instrument</a>
+      <a href="#musician" class="ui button large">Je cherche un instrument</a>
+      <p class="stores-icons open-modal">
+        <i class="apple large icon"></i>
+        <i class="android large icon"></i>
+        <i class="windows large icon"></i>
+      </p>
     </div>
   </div>
 
@@ -168,25 +197,33 @@
   <div class="ui basic segment">
     <div class="ui text container">
       <h4 class="ui horizontal header divider">
-        <span>Interview</span>
+        <span id="instrument">Je prête un instrument</span>
       </h4>
-      <h3 class="ui header">
-        Andy Warhol, designer du mois
-        <span class="right floated">
-          131 <i class="thumbs outline up icon"></i>
-          20 <i class="comment outline icon"></i>
-        </span>
-      </h3>
-      <img class="ui circular small right floated image" src="assets/images/andywarhol.jpg">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <a class="ui large button">Lire l'interview</a>
+      <div class="ui three column divided grid">
+        <div class="row">
+          <div class="column">
+            <!-- <img class="ui medium circular image" src="/images/wireframe/square-image.png"> -->
+            <h2 class="ui center aligned icon header">
+              <i class="circular users icon"></i>
+              Rencontrez des musiciens
+            </h2>
+            <p>XXX</p>
+          </div>
+          <div class="column">
+            <p>XXX</p>
+          </div>
+          <div class="column">
+            <p>XXX</p>
+          </div>
+        </div>
+      </div>
+      <div class="ui text center aligned container">
+        <a class="ui large button open-modal">Prêter un instrument</a>
+      </div>
+
+
       <h4 class="ui horizontal header divider">
-        <span>Conseil</span>
+        <span id="musician">Je cherche un instrument</span>
       </h4>
       <h3 class="ui header">
         Optimiser ses designs avant envoi
@@ -202,43 +239,71 @@
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <a class="ui large button">En savoir plus</a>
+      <a class="ui large button open-modal">Chercher un piano</a>
+    </div>
+  </div>
+
+  <div class="ui inverted padded segment center aligned">
+    <h2>Intéressé ?</h2>
+    <p class="ui text container">Inscrivez vous pour être averti de la sortie de l'application</p>
+    <div class="ui form center aligned">
+      <div class="inline fields">
+        <div class="ten wide field">
+          <input type="text" placeholder="Email">
+        </div>
+        <div class="field">
+          <button class="ui teal button" type="submit">Tenez moi au courant</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="ui basic segment">
+    <div class="ui text container">
+      <h4 class="ui horizontal header divider">
+        <span>Foire aux questions</span>
+      </h4>
+
+      <div class="ui list">
+        <div class="item">
+          <div class="header">Pour qui faut il voter ?</div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="item">
+          <div class="header">Chicago</div>
+          Also quite a lovely city
+        </div>
+        <div class="item">
+          <div class="header">Los Angeles</div>
+          Sometimes can be a lovely city
+        </div>
+        <div class="item">
+          <div class="header">San Francisco</div>
+          What a lovely city
+        </div>
+      </div>
     </div>
   </div>
 
 
   <div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
-      <p class="">
-        <a href="https://dreamstarter.particeep.com/selection/projet/panier-piano" class="item">Suivez nous sur Dreamstarter</a>
+      <p>
+        <a href="https://www.facebook.com/teampanierpiano"><i class="facebook big icon"></i></a>
+        <a href="https://twitter.com/panier_piano"><i class="twitter big icon"></i></a>
       </p>
       <p>
-        Copyright © 2015 Panier Panio
+        Suivez le projet sur 
+        <a href="https://dreamstarter.particeep.com/selection/projet/panier-piano" class="item">Dreamstarter</a>
       </p>
-
-      <!--<div class="ui stackable inverted divided equal height stackable grid">
-        <div class="three wide column">
-          <h4 class="ui inverted header">À propos</h4>
-          <div class="ui inverted link list">
-            <a href="https://dreamstarter.particeep.com/selection/projet/panier-piano" class="item">Suivez nous sur Dreamstarter</a>
-          </div>
-        </div>
-        <div class="seven wide column">
-          <h4 class="ui inverted header">Recevoir les nouveaux designs par mail</h4>
-          <div class="ui container">
-            <div class="ui form">
-              <div class="inline fields">
-                <div class="ten wide field">
-                  <input type="text" placeholder="Email">
-                </div>
-                <div class="six wide field">
-                  <button class="ui button" type="submit">S'inscrire</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>-->
+      <p>
+        Copyright © 2015 Panier Piano
+      </p>
     </div>
   </div>
 </div>
