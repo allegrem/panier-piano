@@ -126,6 +126,31 @@
       color: #535396;
     }
 
+    .ui.text.container.quote {
+      font-family: 'Amatic SC';
+      font-size: 2em;
+    }
+    .quote em {
+      display: block;
+      text-align: right;
+      font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-size: 0.5em; 
+    }
+    .quote img.ui.avatar.image {
+      float: left;
+      height: 3em;
+      width: 3em;
+      margin-right: 30px;
+    }
+
+    .social-icons a:not(:first-child) {
+      margin-left: 30px;
+    }
+
+    .ui.list > .item .header {
+      margin: 1.5em 0 0.5em 0;
+    }
+
   </style>
 
   <script src="assets/library/jquery.min.js"></script>
@@ -144,7 +169,7 @@
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
           if (target.length) {
             $('html,body').animate({
-              scrollTop: target.offset().top
+              scrollTop: target.offset().top - 30
             }, 1000);
             return false;
           }
@@ -210,30 +235,21 @@
         <div class="row">
           <div class="column">
             <h2 class="ui center aligned icon header">
-              <i class="circular users icon"></i>
-              Rencontrez des musiciens
+              <i class="circular heartbeat icon"></i>
+              Redonnez vie à vos instruments
             </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+          </div>
+          <div class="column">
+            <h2 class="ui center aligned icon header">
+              <i class="circular unmute icon"></i>
+              Profitez de concerts gratuits
+            </h2>
           </div>
           <div class="column">
             <h2 class="ui center aligned icon header">
               <i class="circular users icon"></i>
-              Autre raison
+              Rencontrez de nouveaux musiciens
             </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-          </div>
-          <div class="column">
-            <h2 class="ui center aligned icon header">
-              <i class="circular users icon"></i>
-              Une dernière raison
-            </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
           </div>
         </div>
       </div>
@@ -249,30 +265,21 @@
         <div class="row">
           <div class="column">
             <h2 class="ui center aligned icon header">
-              <i class="circular users icon"></i>
-              Rencontrez des musiciens
+              <i class="circular euro icon"></i>
+              1000 fois moins cher qu'un piano
             </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+          </div>
+          <div class="column">
+            <h2 class="ui center aligned icon header">
+              <i class="circular home icon"></i>
+              Jouez où vous voulez quand vous voulez
+            </h2>
           </div>
           <div class="column">
             <h2 class="ui center aligned icon header">
               <i class="circular users icon"></i>
-              Autre raison
+              Partagez l'expérience de musiciens
             </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-          </div>
-          <div class="column">
-            <h2 class="ui center aligned icon header">
-              <i class="circular users icon"></i>
-              Une dernière raison
-            </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
           </div>
         </div>
       </div>
@@ -298,7 +305,27 @@
     </form>
   </div>
 
-    <div class="ui basic segment">
+  <div class="ui basic segment">
+    <div class="ui text container">
+      <h4 class="ui horizontal header divider">
+        <span>Fonctionnalités</span>
+      </h4>
+
+      <strong>TODO</strong>
+    </div>
+  </div>
+
+
+  <div class="ui inverted padded segment">
+    <p class="ui text container quote">
+      <img class="ui avatar image" src="assets/images/avatar/nan.jpg">
+      Je peux enfin jouer du piano en dehors de mes cours ou de mes vacances chez mes parents !
+      <em>@pureplayer84 - Pianiste</em>
+    </p>
+  </div>
+
+
+  <div class="ui basic segment">
     <div class="ui text container">
       <h4 class="ui horizontal header divider">
         <span>Foire aux questions</span>
@@ -306,25 +333,22 @@
 
       <div class="ui list">
         <div class="item">
-          <div class="header">Pour qui faut il voter ?</div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div class="header">Comment ça marche ?</div>
+          - J'ai un instrument : je m'inscris, je remplis mes disponibilités et je sélectionne mes visiteurs.<br>
+          - Je cherche un instrument : je m'inscris, je remplis mon profil et cherche des propriétaires selon mes disponibilités et ma localisation.
         </div>
         <div class="item">
-          <div class="header">Chicago</div>
-          Also quite a lovely city
+          <div class="header">Combien ça coûte ?</div>
+          - Je cherche un instrument, deux possibilités s'offrent à moi : je paye 1€ à la prestation, ou un forfaire illimité au mois de 4,99€<br>
+          - Je prête un instrument : rien !
         </div>
         <div class="item">
-          <div class="header">Los Angeles</div>
-          Sometimes can be a lovely city
+          <div class="header">Puis-je faire confiance aux personnes qui m'accueillent/viennent chez moi ?</div>
+          La musique est une passion qui rassemble des personnes avec des valeurs similaires : le respect des instruments, la rigueur et, on l'espère, le sens du rythme !
         </div>
         <div class="item">
-          <div class="header">San Francisco</div>
-          What a lovely city
+          <div class="header">Qui sommes-nous ?</div>
+          Une équipe de jeunes motivés avec des profils complémentaires : 4 diplômés de Télécom ParisTech et 2 de HEC Paris.
         </div>
       </div>
     </div>
@@ -333,9 +357,9 @@
 
   <div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
-      <p>
-        <a href="https://www.facebook.com/teampanierpiano"><i class="facebook big icon"></i></a>
-        <a href="https://twitter.com/panier_piano"><i class="twitter big icon"></i></a>
+      <p class="social-icons">
+        <a href="https://www.facebook.com/teampanierpiano"><i class="facebook big icon"></i> /teampanierpiano</a>
+        <a href="https://twitter.com/panier_piano"><i class="twitter big icon"></i> @panier_piano</a>
       </p>
       <p>
         Suivez le projet sur 
