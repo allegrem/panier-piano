@@ -7,9 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
-  <title>Les Illuminés</title>
+  <title>Panier Piano</title>
 
   <link rel="stylesheet" type="text/css" href="css/semantic.css">
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC|Lato|Oswald' rel='stylesheet' type='text/css'>
 
   <style type="text/css">
 
@@ -17,8 +18,23 @@
       display: none;
     }
 
-    .masthead.segment {
+    .masthead.segment.vertical {
       padding: 1em 0em;
+      background-image: url('assets/images/bg.jpg');
+      background-size: cover;
+      height: 600px;
+      text-shadow: 0px 0px 11px rgba(0,0,0,0.5);
+    }
+    .masthead.segment.vertical:after {
+      content: '';
+      width: 25%;
+      height: 550px;
+      display: block;
+      background: url('assets/images/mockup4.png');
+      background-size: cover;
+      position: absolute;
+      right: 10%;
+      bottom: 0;
     }
     .masthead .logo.item img {
       margin-right: 1em;
@@ -26,13 +42,19 @@
     .masthead .ui.menu .ui.button {
       margin-left: 0.5em;
     }
+    .masthead .ui.text.container {
+      width: 40%;
+      margin-left: 10% !important;
+    }
     .masthead h1.ui.header {
-      margin-top: 1em;
+      font-family: 'Amatic SC';
+      font-size: 8em;
+      margin-top: 0.5em;
       margin-bottom: 0em;
-      font-size: 4em;
       font-weight: normal;
     }
     .masthead h2 {
+      font-family: Oswald;
       font-size: 1.7em;
       font-weight: normal;
       margin-bottom: 2em;
@@ -98,12 +120,20 @@
       }
     }
 
+    .ui.button.primary {
+      background-color: #535396;
+    }
+    .ui.button.primary:hover, .ui.button.primary:active, .ui.button.primary:focus {
+      background-color: #33335d;
+    }
 
-    /* perso common */
-
-    .ui.large.pointing.menu .main.item {
-      font-weight: bold;
-      color: white !important;
+    .ui.button {
+      background-color: #7c7ce0;
+      color: #fff;
+    }
+    .ui.button:hover, .ui.button:active, .ui.button:focus {
+      background-color: #535396;
+      color: #fff;
     }
 
   </style>
@@ -128,7 +158,9 @@
       <h1 class="ui inverted header">
         Panier Piano
       </h1>
-      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h2>
+      <h2>Première plateforme de mise en relation entre les pianistes et les pianos</h2>
+      <button class="ui primary button huge">Je prête un piano</button>
+      <button class="ui primary button huge">Je cherche un piano</button>
     </div>
   </div>
 
