@@ -28,10 +28,10 @@
       overflow: hidden;
     }
     .masthead.segment.vertical img {
-      width: 25%;
+      height: 100%;
       position: absolute;
       right: 10%;
-      bottom: -40%;
+      bottom: -20%;
     }
     .masthead .logo.item img {
       margin-right: 1em;
@@ -40,7 +40,7 @@
       margin-left: 0.5em;
     }
     .masthead .ui.text.container {
-      width: 40%;
+      width: 47%;
       margin-left: 10% !important;
     }
     .masthead h1.ui.header {
@@ -119,6 +119,7 @@
 
     .ui.large.button {
       font-size: 1.2em;
+      margin-bottom: 1em;
     }
 
     a {
@@ -195,6 +196,89 @@
 
     .ui.inverted.segment:not(.masthead) {
       box-shadow: 0px 0px 19px rgba(0,0,0,0.5);
+    }
+
+
+    @media (max-width: 1000px) and (min-width: 767px) {
+      .masthead.segment.vertical img {
+        bottom: -40%;
+      }
+
+      .masthead.segment.vertical .header {
+        white-space: nowrap;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-top: 0.2em;
+      }
+
+      .masthead .ui.text.container {
+        margin-top: 14em;
+        width: 40%;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .feature {
+        clear: both;
+      }
+      .feature img {
+        position: static;
+        margin-bottom: 2em;
+      }
+      .feature:nth-child(odd) img {
+        float: left;
+        margin-right: 20px;
+      }
+      .feature:nth-child(even) img {
+        float: right;
+        margin-left: 20px;
+      }
+      .feature img:hover {
+        width: 20%;
+        cursor: auto;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .masthead.segment.vertical .header {
+        margin-top: 0.2em;
+      }
+
+      .masthead.segment.vertical img {
+        display: none;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .masthead.segment.vertical {
+        height: auto;
+      }
+
+      .masthead.segment.vertical .header {
+        font-size: 6em;
+      }
+
+      .ui.grid > .row {
+        flex-direction: column;
+      }
+
+      .ui[class*="three column"].grid > .row > .column {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+
+      .social-icons a {
+        display: block;
+        margin-bottom: 1em;
+      }
+
+      .feature:nth-child(even) img, .feature:nth-child(odd) img {
+        float: none;
+        width: 50%;
+        margin: 0 25%;
+      }
     }
 
   </style>
