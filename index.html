@@ -24,17 +24,14 @@
       background-size: cover;
       height: 600px;
       text-shadow: 0px 0px 11px rgba(0,0,0,0.5);
+      box-shadow: 0px -7px 13px rgba(0,0,0,0.5) inset;
+      overflow: hidden;
     }
-    .masthead.segment.vertical:after {
-      content: '';
+    .masthead.segment.vertical img {
       width: 25%;
-      height: 550px;
-      display: block;
-      background: url('assets/images/mockup4.png');
-      background-size: cover;
       position: absolute;
       right: 10%;
-      bottom: 0;
+      bottom: -40%;
     }
     .masthead .logo.item img {
       margin-right: 1em;
@@ -157,6 +154,9 @@
       margin: 1.5em 0 0.5em 0;
     }
 
+    .ui.segment.features {
+      margin: 4em 0 8em 0;
+    }
     .feature {
       width: 80%;
       margin: auto;
@@ -191,6 +191,10 @@
 
     .feature p {
       font-size: 1.2em;
+    }
+
+    .ui.inverted.segment:not(.masthead) {
+      box-shadow: 0px 0px 19px rgba(0,0,0,0.5);
     }
 
   </style>
@@ -264,6 +268,7 @@
         <i class="android large icon"></i>
         <i class="windows large icon"></i>
       </p>
+    <img src="assets/images/mockup4.png">
     </div>
   </div>
 
@@ -347,7 +352,7 @@
     </form>
   </div>
 
-  <div class="ui basic segment">
+  <div class="ui basic segment features">
     <div class="ui text container">
       <div class="feature">
         <img src="assets/images/mockup1.png" alt="Écran d'accueil de l'application">
