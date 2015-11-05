@@ -85,6 +85,7 @@
       padding: 2em 0 3em 0;
       margin: 3em 0 1em 0;
       background-color: #535396;
+      clear: both;
     }
     .ui.segment.padded h2, h2.ui.icon.header {
       font-family: 'Oswald';
@@ -119,6 +120,10 @@
       margin: 2em 0 1em 0;
     }
 
+    .ui.large.button {
+      font-size: 1.2em;
+    }
+
     a {
       color: #7c7ce0;
     }
@@ -128,7 +133,8 @@
 
     .ui.text.container.quote {
       font-family: 'Amatic SC';
-      font-size: 2em;
+      font-size: 2.5em;
+
     }
     .quote em {
       display: block;
@@ -149,6 +155,42 @@
 
     .ui.list > .item .header {
       margin: 1.5em 0 0.5em 0;
+    }
+
+    .feature {
+      width: 80%;
+      margin: auto;
+      position: relative;
+      margin-bottom: 4em;
+    }
+
+    .feature img {
+      width: 20%;
+      position: absolute;
+      top: -1em;
+      z-index: 2;
+      transition: width 0.5s ease;
+    }
+    .feature img:hover {
+      width: 60%;
+      z-index: 3;
+      cursor: pointer;
+    }
+    .feature:nth-child(odd) img {
+      left: -170px;
+    }
+    .feature:nth-child(even) img {
+      right: -170px;
+    }
+
+    .feature h2 {
+      font-family: 'Oswald';
+      font-weight: normal;
+      font-size: 1.6em;
+    }
+
+    .feature p {
+      font-size: 1.2em;
     }
 
   </style>
@@ -231,7 +273,7 @@
       <h4 class="ui horizontal header divider">
         <span id="instrument">Je prête un instrument</span>
       </h4>
-      <div class="ui three column divided grid">
+      <div class="ui three column grid">
         <div class="row">
           <div class="column">
             <h2 class="ui center aligned icon header">
@@ -261,7 +303,7 @@
       <h4 class="ui horizontal header divider">
         <span id="musician">Je cherche un instrument</span>
       </h4>
-      <div class="ui three column divided grid">
+      <div class="ui three column grid">
         <div class="row">
           <div class="column">
             <h2 class="ui center aligned icon header">
@@ -307,11 +349,31 @@
 
   <div class="ui basic segment">
     <div class="ui text container">
-      <h4 class="ui horizontal header divider">
-        <span>Fonctionnalités</span>
-      </h4>
-
-      <strong>TODO</strong>
+      <div class="feature">
+        <img src="assets/images/mockup1.png" alt="Écran d'accueil de l'application">
+        <h2>Des services, une communauté, des bons plans, de la musique !</h2>
+        <p>Via l'interface intuitive de Panier Piano, rejoins un réseau social de musiciens, et invite tes amis à tes concerts et partage les instruments qui pourront les intéresser.</p>
+      </div>
+      <div class="feature">
+        <img src="assets/images/mockup2.png" alt="Écran d'accueil de l'application">
+        <h2>Ton instrument préféré près de chez toi !</h2>
+        <p>Grâce à la géolocalisation et la carte interactive de Panier Piano, retrouve rapidement et facilement où jouer de ton instrument dans ton secteur.</p>
+      </div>
+      <div class="feature">
+        <img src="assets/images/mockup3.png" alt="Écran d'accueil de l'application">
+        <h2>Poste une description de tes instruments pour proposer aux musiciens de venir jouer dessus !</h2>
+        <p>Retrouve les caractéristiques de l'instrument proposé, ainsi que des vidéos démonstratives qui te permettront de te rendre compte de la prise en main et du son.</p>
+      </div>
+      <div class="feature">
+        <img src="assets/images/mockup4.png" alt="Écran d'accueil de l'application">
+        <h2>Laisse un petit commentaire sur l'instrument !</h2>
+        <p>Sur la page de l'instrument, retrouve son historique, prends contact avec son propriétaire et consulte les avis des autres utilisateurs.</p>
+      </div>
+      <div class="feature">
+        <img src="assets/images/mockup5.png" alt="Écran d'accueil de l'application">
+        <h2>Utilisez le chat pour vous organiser à deux !</h2>
+        <p>Panier Piano a fait le choix d'un chat pour communiquer et prendre rendez-vous. C'est facile d'utilisation, et surtout, ça crée des liens plus intimes entre musiciens.</p>
+      </div>
     </div>
   </div>
 
