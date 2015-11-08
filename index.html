@@ -198,6 +198,11 @@
       box-shadow: 0px 0px 19px rgba(0,0,0,0.5);
     }
 
+    .form-success {
+      display: none;
+      font-style: italic;
+    }
+
 
     @media (max-width: 1000px) and (min-width: 767px) {
       .masthead.segment.vertical img {
@@ -322,9 +327,16 @@
             dataType: "json",
             data: JSON.stringify({'email': email})
           };
+          $form.find('input, button[type=submit]').attr('disabled', true);
           $.ajax(requestParams)
-            .done(function() { console.log('success'); })
-            .fail(function(err) { console.log(err); });
+            .done(function() {
+              $('form').hide();
+              $('.form-success').show();
+            })
+            .fail(function(err) {
+              alert("Une erreur est survenue lors de l'envoi du formulaire. Merci de réessayer plus tard.")
+              console.log(err);
+            });
         }
       })
     })
@@ -344,6 +356,7 @@
     </div>
     <div class="description">
       <p>Notre équipe est en train de développer une première version de l'appli pour iOS, Android et Windows Phone. Si vous souhaitez participer à la beta et essayer l'application en exclusivité, renseignez votre adresse mail ci-dessous pour que nous puissions vous contacter.</p>
+      <p class="form-success">Votre adresse a bien été enregistrée</p>
       <form class="ui form center aligned" action="https://we7vsm1wkg.execute-api.us-west-2.amazonaws.com/prod/SaveEmail" method="POST">
         <div class="inline fields">
           <div class="ten wide field">
@@ -444,6 +457,7 @@
   <div class="ui inverted padded segment center aligned">
     <h2>Intéressé ?</h2>
     <p class="ui text container">Inscrivez vous pour être averti de la sortie de l'application</p>
+    <p class="form-success">Votre adresse a bien été enregistrée</p>
     <form class="ui form center aligned" action="https://we7vsm1wkg.execute-api.us-west-2.amazonaws.com/prod/SaveEmail" method="POST">
       <div class="inline fields">
         <div class="ten wide field">
