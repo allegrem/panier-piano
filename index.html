@@ -305,6 +305,28 @@
           }
         }
       });
+
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var $form = $(e.target).closest('form')
+        var email = $form.find('input[name=email]').val();
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        if(!re.test(email)) {
+          alert("Email invalide");
+        }
+        else {
+          var requestParams = {
+            url: $form.attr('action'),
+            method: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({'email': email})
+          };
+          $.ajax(requestParams)
+            .done(function() { console.log('success'); })
+            .fail(function(err) { console.log(err); });
+        }
+      })
     })
   ;
   </script>
@@ -322,8 +344,7 @@
     </div>
     <div class="description">
       <p>Notre équipe est en train de développer une première version de l'appli pour iOS, Android et Windows Phone. Si vous souhaitez participer à la beta et essayer l'application en exclusivité, renseignez votre adresse mail ci-dessous pour que nous puissions vous contacter.</p>
-      <form class="ui form center aligned" accept-charset="UTF-8" action="https://formkeep.com/f/40e929aaddcd" method="POST">
-        <input type="hidden" name="utf8" value="✓">
+      <form class="ui form center aligned" action="https://we7vsm1wkg.execute-api.us-west-2.amazonaws.com/prod/SaveEmail" method="POST">
         <div class="inline fields">
           <div class="ten wide field">
             <input type="email" placeholder="Email" name="email">
@@ -423,8 +444,7 @@
   <div class="ui inverted padded segment center aligned">
     <h2>Intéressé ?</h2>
     <p class="ui text container">Inscrivez vous pour être averti de la sortie de l'application</p>
-    <form class="ui form center aligned" accept-charset="UTF-8" action="https://formkeep.com/f/40e929aaddcd" method="POST">
-      <input type="hidden" name="utf8" value="✓">
+    <form class="ui form center aligned" action="https://we7vsm1wkg.execute-api.us-west-2.amazonaws.com/prod/SaveEmail" method="POST">
       <div class="inline fields">
         <div class="ten wide field">
           <input type="email" placeholder="Email" name="email">
